@@ -37,3 +37,9 @@ Fallo 2:Se me olvido que es en ingles y coloque en 'servicioCherio.js' y mal el 
 
 Con esto la página abre pero con errores.
 
+7-Se arreglaron multiples errores a traves del todos los archivos, para encontrarlo busquen los comentarios:
+	//---descripción del cambio
+Pero en general era errores de escritura, mal uso de variables o también que directamente faltaba parte del codigo para que funcionara correctamente.
+
+El ENDPOINT, para poder acceder a la web sería:  http://localhost:3000/api/scrape
+
