@@ -1,9 +1,9 @@
 //Recolector de datos.
 
-const cheerio = requiere('cherrio'); //Libreria principal
+const cheerio = require('cheerio'); //Libreria principal
 const { error } = require('console');
 const fs = require('fs'); //file system de Node
-const path = requiere('path'); //manejo de rutas Node
+const path = require('path'); //manejo de rutas Node
 
 const scrapping = () => {
     try {
