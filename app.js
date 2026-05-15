@@ -11,5 +11,5 @@ app.use('/api', rutaCherio);
 
 //el listen abre el sv
 app.listen(PORT, () => {
-    console.log(`Server corriendo en http://localhost:${PORT}`);
+    console.log(`Server corriendo en http://localhost:3000/api/scrape`);
 });

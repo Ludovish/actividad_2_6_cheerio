@@ -15,7 +15,7 @@ const getLista = (req, res) => {
         //Y el 500 es para fallos
         res.status(500).json({
             error: "hubo error",
-            detalle: error.mensaje
+            detalle: er.message   //---Variable arreglada
         });
     }
 };

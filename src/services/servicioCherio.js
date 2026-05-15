@@ -1,13 +1,12 @@
 //Recolector de datos.
 
 const cheerio = require('cheerio'); //Libreria principal
-const { error } = require('console');
 const fs = require('fs'); //file system de Node
 const path = require('path'); //manejo de rutas Node
 
 const scrapping = () => {
     try {
-        const ruta = path.join('../../index.html');
+        const ruta = path.join(__dirname,'../../index.html'); //---Se añadio dirname para que sea absoluto.
         //Esto hace que pueda llegar al archivo
 
         if (!fs.existsSync(ruta)) {
@@ -17,7 +16,7 @@ const scrapping = () => {
 
         const contenidoPagina = fs.readFileSync(ruta, 'UTF-8');
         //Hacemos que lea el archivo
-        const $ = cherrio.load(contenidoPagina);
+        const $ = cheerio.load(contenidoPagina);     //---Error arreglado
         //Le hace parse para poder manipularlo
         const productosList = [];
 
@@ -25,9 +24,9 @@ const scrapping = () => {
         //En el caso mio es "obtener" el nombre de la clase
         $('.obtener').each((index, element) => {
             const producto = {
-                nombre: $(element).find('.nombre'),
-                precio: $(element).find('precio'),
-                cantidad: $(element).find('cantidad')
+                nombre: $(element).find('.nombre').text().trim(),
+                precio: $(element).find('.precio').text().trim(),  //---Faltaban '.' en las clases
+                cantidad: $(element).find('.cantidad').text().trim() //--Se añadio el .text().trim() porque si no tiraba error.
             };
             //Esto crea un objeto de lo que obtiene dle html usando las clases
             
@@ -45,6 +44,7 @@ const scrapping = () => {
     } catch (er) {
         throw er;
     }
-
-    module.exports = {scrapping};
 }
+
+module.exports = {scrapping};
+    //---Se movio la exportación afuera.
